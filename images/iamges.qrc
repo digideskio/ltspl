@@ -1,0 +1,8 @@
+<RCC>
+    <qresource>
+        <file>Banner.png</file>
+        <file>close_N.png</file>
+        <file>close_H.png</file>
+        <file>username_N.png</file>
+    </qresource>
+</RCC>
