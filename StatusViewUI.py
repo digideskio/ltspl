@@ -9,6 +9,7 @@ class StatusView(QWidget):
         super(StatusView, self).__init__()
         self.resize(476, 200)
         stack_layout = QStackedLayout(self)
+        stack_layout.setStackingMode(QStackedLayout.StackAll)
         stack_layout.addWidget(UICreatetor.create_background())
 
         self.anim_in = QPropertyAnimation(self, b"pos")
@@ -24,19 +25,15 @@ class StatusView(QWidget):
         self.anim_out.setEndValue(QPoint(2, 0))
         self.anim_out.setEasingCurve(QEasingCurve.OutExpo)
 
-        self.status_edit = QTextEdit()
-        self.status_edit.resize(495, 170)
-        self.status_edit.move(5, 0)
-        self.status_edit.setVerticalScrollBar(None)
-        effect = QGraphicsBlurEffect()
-        effect.setBlurRadius(1.8)
-        self.status_edit.setGraphicsEffect(effect)
-        self.status_edit.setEnabled(False)
-        self.status_edit.setStyleSheet("border-image: url(images/ButtomArea.png);color: rgb(85, 255, 0);")
-        stack_layout.addChildWidget(self.status_edit)
+        test = QLabel("登陆成功")
+        test.move(227,91)
+        test.resize(60,30)
+        stack_layout.addChildWidget(test)
+        #stack_layout.addChildWidget(QPushButton("登陆成功"))
 
     def add_background_msg(self, msg):
-        self.status_edit.append("      "+msg)
+        pass
+        #self.status_edit.append("      "+msg)
 
     def easing_in(self):
         self.anim_in.start()

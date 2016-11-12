@@ -7,6 +7,7 @@
           <option value="unittest.TestCase" />
           <option value="unittest.case.TestCase" />
           <option value="Main.MainWin" />
+          <option value="EventDispacher.GEventDispatcher" />
         </list>
       </option>
     </inspection_tool>

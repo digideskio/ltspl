@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import QLabel,\
-    QLineEdit, QPushButton
+    QLineEdit, QPushButton, QGraphicsDropShadowEffect
 from PyQt5.QtGui import QPixmap
 
 
@@ -7,6 +7,7 @@ def create_background(w=476, h=200):
     bottom_image = QLabel()  # 底部白色背景
     bottom_image.resize(w, h)
     bottom_image.setPixmap(QPixmap("images/ButtomArea.png"))
+    shadow  = QGraphicsDropShadowEffect(bottom_image)
     return bottom_image
 
 

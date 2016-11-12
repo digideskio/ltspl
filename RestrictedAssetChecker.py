@@ -5,17 +5,25 @@ import time
 
 
 class AssetChecker(QThread):
-    def __init__(self, target = None):
+    signal_message = pyqtSignal(str)
+
+    def __init__(self, target=None):
         super(AssetChecker, self).__init__()
         self.identity = None
         self.target = target
+        self.asset_array = []
 
     def run(self):
-        pass
-        for parent, _, filenames in os.walk("C:\\UE4\\UE4.13.1\\Engine"):
+        time.sleep(1)
+        for parent, _, filenames in os.walk("C:\\Users\\xtyga\\Documents\\Unreal Projects\\LTSP4110\\Content\\RestrictedAssets"):
             for filename in filenames:
-                self.target.add_background_msg(os.path.join(parent, filename))
-                time.sleep(0.2)
+                fn = os.path.join(parent, filename)
+                self.asset_array.append(fn)
+                #print(os.path.join(parent, filename))
+                #self.signal_message.emit(os.path.join(parent, filename))
+                #time.sleep(0.001)
+        print("analisisy over",len(self.asset_array))
+
 
 if __name__ == "__main__":
     import sys
